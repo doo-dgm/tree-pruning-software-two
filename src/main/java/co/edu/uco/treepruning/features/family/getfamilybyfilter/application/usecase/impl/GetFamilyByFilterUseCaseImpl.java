@@ -12,8 +12,6 @@ import org.springframework.cache.annotation.Cacheable;
 @Service
 public class GetFamilyByFilterUseCaseImpl implements GetFamilyByFilterUseCase {
 	
-
-
     private final FamilyRepository familyRepository;
     private final GetFamilyDomainMapper mapper;
 

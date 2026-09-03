@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.uco.treepruning.crosscutting.catalog.MessageCatalogService;
 import co.edu.uco.treepruning.crosscutting.exception.ResourceNotFoundException;
+import co.edu.uco.treepruning.crosscutting.helper.NumericHelper;
 import co.edu.uco.treepruning.crosscutting.response.ApiResponse;
 import co.edu.uco.treepruning.features.family.getfamilybyfilter.application.inputport.dto.GetFamilyDTO;
+import co.edu.uco.treepruning.features.programming.getprogrammingbyfilter.application.inputport.dto.GetProgrammingDTO;
 import co.edu.uco.treepruning.features.sector.getsectorbyfilter.application.inputport.dto.GetSectorDTO;
 import co.edu.uco.treepruning.features.tree.gettreebyfilter.application.inputport.GetTreeByFilterInputPort;
 import co.edu.uco.treepruning.features.tree.gettreebyfilter.application.inputport.dto.GetTreeDTO;
@@ -41,7 +43,7 @@ public class GetTreeController {
             @Parameter(description = "Identificador de la familia botanica") @RequestParam(required = false) UUID familyId,
             @Parameter(description = "Identificador del sector geografico") @RequestParam(required = false) UUID sectorId) {
         List<GetTreeDTO> results = inputPort.execute(
-                new GetTreeDTO(id, null, null, new GetFamilyDTO(familyId), new GetSectorDTO(sectorId), null));
+                new GetTreeDTO(id, NumericHelper.getDefaultBigDecimal(), NumericHelper.getDefaultBigDecimal(), new GetFamilyDTO(familyId), new GetSectorDTO(sectorId), new GetProgrammingDTO()));
         return ResponseEntity.ok(ApiResponse.ok(catalog.resolve("SUCCESS.TREE.LIST"), results));
     }
 

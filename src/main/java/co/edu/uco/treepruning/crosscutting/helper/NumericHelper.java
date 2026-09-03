@@ -1,5 +1,7 @@
 package co.edu.uco.treepruning.crosscutting.helper;
 
+import java.math.BigDecimal;
+
 public class NumericHelper {
     private NumericHelper() {
     }
@@ -26,5 +28,13 @@ public class NumericHelper {
     
     public static long getDefaultLong(final Long value) {
         return ObjectHelper.getDefault(value, getDefaultLong());
+    }
+    
+    public static BigDecimal getDefaultBigDecimal() {
+        return BigDecimal.ZERO;
+    }
+    
+    public static BigDecimal getDefaultBigDecimal(final BigDecimal value) {
+        return ObjectHelper.getDefault(value, getDefaultBigDecimal());
     }
 }

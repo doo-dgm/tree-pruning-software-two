@@ -22,12 +22,16 @@ public final class GetProgrammingDTO {
     public GetProgrammingDTO(UUID id) {
         setId(id);
         setInitialDate(DateHelper.getDefault());
-        setFrequencyMonths(0);
-        setAmount(0);
+		setFrequencyMonths(NumericHelper.getDefaultInt());
+		setAmount(NumericHelper.getDefaultInt());
     }
 
     public GetProgrammingDTO() {
-        this(UUIDHelper.getDefault());
+    	setId(UUIDHelper.getDefault());
+		setInitialDate(DateHelper.getDefault());
+		setFrequencyMonths(NumericHelper.getDefaultInt());
+		setAmount(NumericHelper.getDefaultInt());
+        
     }
 
     public UUID getId() { return id; }

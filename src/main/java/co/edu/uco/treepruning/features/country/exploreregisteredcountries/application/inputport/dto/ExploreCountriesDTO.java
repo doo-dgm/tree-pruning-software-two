@@ -5,7 +5,7 @@ import java.util.UUID;
 import co.edu.uco.treepruning.crosscutting.helper.TextHelper;
 import co.edu.uco.treepruning.crosscutting.helper.UUIDHelper;
 
-public class ExploreCountriesDTO {
+public final class ExploreCountriesDTO {
 	private UUID id;
 	private String name;
 	private String isoCode;

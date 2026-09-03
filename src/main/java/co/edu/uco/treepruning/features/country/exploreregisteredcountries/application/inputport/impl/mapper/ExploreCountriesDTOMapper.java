@@ -9,7 +9,8 @@ import co.edu.uco.treepruning.features.country.exploreregisteredcountries.applic
 @Mapper(componentModel = "spring")
 public interface ExploreCountriesDTOMapper {
 	default ExploreCountriesDTO toDTO(ExploreCountriesDomain domain) {
-		if (ObjectHelper.isNull(domain)) return new ExploreCountriesDTO();
-		return new ExploreCountriesDTO(domain.getId(), domain.getName(), domain.getIsoCode());
+		
+		if (ObjectHelper.isNull(domain)) return null;
+		return new ExploreCountriesDTO(domain.getId(), domain.getName(),domain.getIsoCode());
 	}
 }

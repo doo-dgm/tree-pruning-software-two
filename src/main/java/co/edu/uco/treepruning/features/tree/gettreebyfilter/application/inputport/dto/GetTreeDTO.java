@@ -2,6 +2,8 @@ package co.edu.uco.treepruning.features.tree.gettreebyfilter.application.inputpo
 
 import java.math.BigDecimal;
 import java.util.UUID;
+
+import co.edu.uco.treepruning.crosscutting.helper.NumericHelper;
 import co.edu.uco.treepruning.crosscutting.helper.ObjectHelper;
 import co.edu.uco.treepruning.crosscutting.helper.UUIDHelper;
 import co.edu.uco.treepruning.features.family.getfamilybyfilter.application.inputport.dto.GetFamilyDTO;
@@ -58,10 +60,10 @@ public final class GetTreeDTO {
         this.id = UUIDHelper.getDefault(id);
     }
     private void setLongitude(final BigDecimal longitude) {
-        this.longitude = longitude != null ? longitude : BigDecimal.ZERO;
+        this.longitude = NumericHelper.getDefaultBigDecimal(longitude);
     }
     private void setLatitude(final BigDecimal latitude) {
-        this.latitude = latitude != null ? latitude : BigDecimal.ZERO;
+        this.latitude = NumericHelper.getDefaultBigDecimal(latitude);
     }
     private void setFamily(final GetFamilyDTO family) {
         this.family = ObjectHelper.getDefault(family, new GetFamilyDTO());

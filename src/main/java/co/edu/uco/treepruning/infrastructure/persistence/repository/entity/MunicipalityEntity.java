@@ -16,6 +16,20 @@ public class MunicipalityEntity {
         setName(TextHelper.getDefault());
         setState(new StateEntity());
     }
+    
+    public MunicipalityEntity(final UUID id) {
+		super();
+		setId(id);
+		setName(TextHelper.getDefault());
+		setState(new StateEntity());
+	}
+    
+    public MunicipalityEntity(final UUID id, final String name, final StateEntity state) {
+		super();
+		setId(id);
+		setName(name);
+		setState(state);
+	}
 
     public UUID getId() {
         return id;
@@ -27,13 +41,13 @@ public class MunicipalityEntity {
         return state;
     }
 
-    public void setId(UUID id) {
+    public void setId(final UUID id) {
         this.id = UUIDHelper.getDefault(id);
     }
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = TextHelper.getDefault(name);
     }
-    public void setState(StateEntity state) {
+    public void setState(final StateEntity state) {
         this.state = ObjectHelper.getDefault(state, new StateEntity());
     }
 }

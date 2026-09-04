@@ -2,6 +2,8 @@ package co.edu.uco.treepruning.crosscutting.helper;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
+
 import co.edu.uco.treepruning.crosscutting.util.CrossCuttingConstants;
 
 public final class DateHelper {
@@ -18,6 +20,14 @@ public final class DateHelper {
     public static LocalDate getDefault(final LocalDate value) {
         return ObjectHelper.getDefault(value, getDefault());
     }
+    
+    public static ZonedDateTime getDefaultZonedDateTime() {
+		return ZonedDateTime.now();
+	}
+    
+    public static ZonedDateTime getDefaultZonedDateTime(final ZonedDateTime value) {
+		return ObjectHelper.getDefault(value, getDefaultZonedDateTime());
+	}
 
     public static LocalDate generateCurrentDate() {
         return LocalDate.now();

@@ -1,7 +1,10 @@
 package co.edu.uco.treepruning.infrastructure.persistence.repository.entity;
 
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.UUID;
+
+import co.edu.uco.treepruning.crosscutting.helper.DateHelper;
 import co.edu.uco.treepruning.crosscutting.helper.ObjectHelper;
 import co.edu.uco.treepruning.crosscutting.helper.UUIDHelper;
 
@@ -12,6 +15,8 @@ public class TreeEntity {
     private FamilyEntity family;
     private SectorEntity sector;
     private ProgrammingEntity programming;
+    private ZonedDateTime createdAt;
+    private ZonedDateTime updatedAt;
 
     public TreeEntity() {
         super();
@@ -21,6 +26,32 @@ public class TreeEntity {
         setFamily(new FamilyEntity());
         setSector(new SectorEntity());
         setProgramming(new ProgrammingEntity());
+        setCreatedAt(DateHelper.getDefaultZonedDateTime());
+        setUpdatedAt(DateHelper.getDefaultZonedDateTime());
+    }
+    
+    public TreeEntity(final UUID id) {
+		super();
+		setId(id);
+		setLongitude(BigDecimal.ZERO);
+		setLatitude(BigDecimal.ZERO);
+		setFamily(new FamilyEntity());
+		setSector(new SectorEntity());
+		setProgramming(new ProgrammingEntity());
+		setCreatedAt(DateHelper.getDefaultZonedDateTime());
+		setUpdatedAt(DateHelper.getDefaultZonedDateTime());
+	}
+    
+    public TreeEntity(final UUID id, final BigDecimal longitude, final BigDecimal latitude, final FamilyEntity family, final SectorEntity sector, final ProgrammingEntity programming, final ZonedDateTime createdAt, final ZonedDateTime updatedAt) {
+    			super();
+		setId(id);
+		setLongitude(longitude);
+		setLatitude(latitude);
+		setFamily(family);
+		setSector(sector);
+		setProgramming(programming);
+		setCreatedAt(createdAt);
+		setUpdatedAt(updatedAt);
     }
 
     public UUID getId() { 
@@ -42,22 +73,28 @@ public class TreeEntity {
     	return programming; 
     	}
 
-    public void setId(UUID id) {
+    private void setId(final UUID id) {
         this.id = UUIDHelper.getDefault(id);
     }
-    public void setLongitude(BigDecimal longitude) {
+    private void setLongitude(final BigDecimal longitude) {
         this.longitude = longitude != null ? longitude : BigDecimal.ZERO;
     }
-    public void setLatitude(BigDecimal latitude) {
+    private void setLatitude(final BigDecimal latitude) {
         this.latitude = latitude != null ? latitude : BigDecimal.ZERO;
     }
-    public void setFamily(FamilyEntity family) {
+    private void setFamily(final FamilyEntity family) {
         this.family = ObjectHelper.getDefault(family, new FamilyEntity());
     }
-    public void setSector(SectorEntity sector) {
+    private void setSector(final SectorEntity sector) {
         this.sector = ObjectHelper.getDefault(sector, new SectorEntity());
     }
-    public void setProgramming(ProgrammingEntity programming) {
+    private void setProgramming(final ProgrammingEntity programming) {
         this.programming = ObjectHelper.getDefault(programming, new ProgrammingEntity());
     }
+    private void setCreatedAt(final ZonedDateTime createdAt) {
+		this.createdAt = DateHelper.getDefaultZonedDateTime(createdAt);
+	}
+    private void setUpdatedAt(final ZonedDateTime updatedAt) {
+		this.updatedAt = DateHelper.getDefaultZonedDateTime(updatedAt);
+	}
 }

@@ -13,6 +13,18 @@ public class StatusEntity {
         setId(UUIDHelper.getDefault());
         setName(TextHelper.getDefault());
     }
+    
+    public StatusEntity(final UUID id) {
+		super();
+		setId(id);
+		setName(TextHelper.getDefault());
+	}
+    
+    public StatusEntity(final UUID id, final String name) {
+		super();
+		setId(id);
+		setName(name);
+	}
 
     public UUID getId() {
         return id;
@@ -21,10 +33,10 @@ public class StatusEntity {
         return name;
     }
 
-    public void setId(UUID id) {
+    public void setId(final UUID id) {
         this.id = UUIDHelper.getDefault(id);
     }
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = TextHelper.getDefault(name);
     }
 }

@@ -1,42 +1,46 @@
 package co.edu.uco.treepruning.infrastructure.persistence.repository.entity;
 
 import java.util.UUID;
+
 import co.edu.uco.treepruning.crosscutting.helper.ObjectHelper;
 import co.edu.uco.treepruning.crosscutting.helper.UUIDHelper;
 
-public class ManagerEntity {
+public class OperatorEntity {
 	private UUID id;
 	private PersonEntity person;
-
-	public ManagerEntity() {
+	
+	public OperatorEntity() {
 		super();
 		setId(UUIDHelper.getDefault());
 		setPerson(new PersonEntity());
 	}
-
-	public ManagerEntity(final UUID id) {
+	
+	public OperatorEntity(final UUID id) {
 		super();
 		setId(id);
 		setPerson(new PersonEntity());
 	}
-
-	public ManagerEntity(final UUID id, final PersonEntity person) {
+	
+	public OperatorEntity(final UUID id, final PersonEntity person) {
 		super();
 		setId(id);
 		setPerson(person);
 	}
-
+	
 	public UUID getId() {
 		return id;
 	}
+	
 	public PersonEntity getPerson() {
 		return person;
 	}
-
-	public void setId(final UUID id) {
+	
+	private void setId(final UUID id) {
 		this.id = UUIDHelper.getDefault(id);
 	}
-	public void setPerson(final PersonEntity person) {
+	
+	private void setPerson(final PersonEntity person) {
 		this.person = ObjectHelper.getDefault(person, new PersonEntity());
 	}
+	
 }

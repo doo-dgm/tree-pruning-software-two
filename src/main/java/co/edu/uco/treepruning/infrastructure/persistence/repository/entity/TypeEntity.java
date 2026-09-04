@@ -13,6 +13,18 @@ public class TypeEntity {
         setId(UUIDHelper.getDefault());
         setName(TextHelper.getDefault());
     }
+    
+    public TypeEntity(final UUID id) {
+		super();
+		setId(id);
+		setName(TextHelper.getDefault());
+	}
+    
+    public TypeEntity(final UUID id, final String name) {
+		super();
+		setId(id);
+		setName(name);
+	}
 
     public UUID getId() {
         return id;

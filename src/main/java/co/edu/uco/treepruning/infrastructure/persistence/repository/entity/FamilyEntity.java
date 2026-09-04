@@ -15,6 +15,20 @@ public class FamilyEntity {
         setScientificName(TextHelper.getDefault());
         setCommonName(TextHelper.getDefault());
     }
+    
+    public FamilyEntity(final UUID id) {
+		super();
+		setId(id);
+		setScientificName(TextHelper.getDefault());
+		setCommonName(TextHelper.getDefault());
+	}
+    
+    public FamilyEntity(final UUID id, final String scientificName, final String commonName) {
+		super();
+		setId(id);
+		setScientificName(scientificName);
+		setCommonName(commonName);
+	}
 
     public UUID getId() {
         return id;
@@ -26,13 +40,13 @@ public class FamilyEntity {
         return commonName;
     }
 
-    public void setId(UUID id) {
+    public void setId(final UUID id) {
         this.id = UUIDHelper.getDefault(id);
     }
-    public void setScientificName(String scientificName) {
+    public void setScientificName(final String scientificName) {
         this.scientificName = TextHelper.getDefaultWithTrim(scientificName);
     }
-    public void setCommonName(String commonName) {
+    public void setCommonName(final String commonName) {
         this.commonName = TextHelper.getDefaultWithTrim(commonName);
     }
 }

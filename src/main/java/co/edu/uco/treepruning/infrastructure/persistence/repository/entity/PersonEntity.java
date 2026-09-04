@@ -10,122 +10,158 @@ import co.edu.uco.treepruning.crosscutting.helper.TextHelper;
 import co.edu.uco.treepruning.crosscutting.helper.UUIDHelper;
 
 public class PersonEntity {
-    private UUID id;
-    private String firstName;
-    private String secondName;
-    private String firstLastName;
-    private String secondLastName;
-    private DocumentEntity document;
-    private String documentNumber;
-    private LocalDate birthDate;
-    private String address;
-    private String email;
-    private boolean emailConfirmed;
-    private String phone;
-    private boolean phoneConfirmed;
-    private int age;
+	private UUID id;
+	private String firstName;
+	private String secondName;
+	private String firstLastName;
+	private String secondLastName;
+	private DocumentEntity document;
+	private String documentNumber;
+	private LocalDate birthDate;
+	private String address;
+	private String email;
+	private boolean emailConfirmed;
+	private String phone;
+	private boolean phoneConfirmed;
+	private int age;
 
-    public PersonEntity() {
-        super();
-        setId(UUIDHelper.getDefault());
-        setFirstName(TextHelper.getDefault());
-        setSecondName(TextHelper.getDefault());
-        setFirstLastName(TextHelper.getDefault());
-        setSecondLastName(TextHelper.getDefault());
-        setDocument(new DocumentEntity());
-        setDocumentNumber(TextHelper.getDefault());
-        setBirthDate(DateHelper.getDefault());
-        setAddress(TextHelper.getDefault());
-        setEmail(TextHelper.getDefault());
-        setEmailConfirmed(BooleanHelper.getDefault());
-        setPhone(TextHelper.getDefault());
-        setPhoneConfirmed(BooleanHelper.getDefault());
-        setAge(NumericHelper.getDefaultInt());
-    }
+	public PersonEntity() {
+		super();
+		setId(UUIDHelper.getDefault());
+		setFirstName(TextHelper.getDefault());
+		setSecondName(TextHelper.getDefault());
+		setFirstLastName(TextHelper.getDefault());
+		setSecondLastName(TextHelper.getDefault());
+		setDocument(new DocumentEntity());
+		setDocumentNumber(TextHelper.getDefault());
+		setBirthDate(DateHelper.getDefault());
+		setAddress(TextHelper.getDefault());
+		setEmail(TextHelper.getDefault());
+		setEmailConfirmed(BooleanHelper.getDefault());
+		setPhone(TextHelper.getDefault());
+		setPhoneConfirmed(BooleanHelper.getDefault());
+		setAge(NumericHelper.getDefaultInt());
+	}
 
-    public UUID getId() {
-        return id;
-    }
-    public String getFirstName() {
-        return firstName;
-    }
-    public String getSecondName() {
-        return secondName;
-    }
-    public String getFirstLastName() {
-        return firstLastName;
-    }
-    public String getSecondLastName() {
-        return secondLastName;
-    }
-    public DocumentEntity getDocument() {
-        return document;
-    }
-    public String getDocumentNumber() {
-        return documentNumber;
-    }
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-    public String getAddress() {
-        return address;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public boolean isEmailConfirmed() {
-        return emailConfirmed;
-    }
-    public String getPhone() {
-        return phone;
-    }
-    public boolean isPhoneConfirmed() {
-        return phoneConfirmed;
-    }
-    public int getAge() {
-        return age;
-    }
+	public PersonEntity(final UUID id) {
+		super();
+		setId(id);
+		setFirstName(TextHelper.getDefault());
+		setSecondName(TextHelper.getDefault());
+		setFirstLastName(TextHelper.getDefault());
+		setSecondLastName(TextHelper.getDefault());
+		setDocument(new DocumentEntity());
+		setDocumentNumber(TextHelper.getDefault());
+		setBirthDate(DateHelper.getDefault());
+		setAddress(TextHelper.getDefault());
+		setEmail(TextHelper.getDefault());
+		setEmailConfirmed(BooleanHelper.getDefault());
+		setPhone(TextHelper.getDefault());
+		setPhoneConfirmed(BooleanHelper.getDefault());
+		setAge(NumericHelper.getDefaultInt());
+	}
 
-    public void setId(UUID id) {
-        this.id = UUIDHelper.getDefault(id);
-    }
-    public void setFirstName(String firstName) {
-        this.firstName = TextHelper.getDefaultWithTrim(firstName);
-    }
-    public void setSecondName(String secondName) {
-        this.secondName = TextHelper.getDefaultWithTrim(secondName);
-    }
-    public void setFirstLastName(String firstLastName) {
-        this.firstLastName = TextHelper.getDefaultWithTrim(firstLastName);
-    }
-    public void setSecondLastName(String secondLastName) {
-        this.secondLastName = TextHelper.getDefaultWithTrim(secondLastName);
-    }
-    public void setDocument(DocumentEntity document) {
-        this.document = ObjectHelper.getDefault(document, new DocumentEntity());
-    }
-    public void setDocumentNumber(String documentNumber) {
-        this.documentNumber = TextHelper.getDefaultWithTrim(documentNumber);
-    }
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = DateHelper.getDefault(birthDate);
-    }
-    public void setAddress(String address) {
-        this.address = TextHelper.getDefaultWithTrim(address);
-    }
-    public void setEmail(String email) {
-        this.email = TextHelper.getDefaultWithTrim(email);
-    }
-    public void setEmailConfirmed(boolean emailConfirmed) {
-        this.emailConfirmed = BooleanHelper.getDefault(emailConfirmed);
-    }
-    public void setPhone(String phone) {
-        this.phone = TextHelper.getDefaultWithTrim(phone);
-    }
-    public void setPhoneConfirmed(boolean phoneConfirmed) {
-        this.phoneConfirmed = BooleanHelper.getDefault(phoneConfirmed);
-    }
-    public void setAge(int age) {
-        this.age = NumericHelper.getDefaultInt(age);
-    }
+	public PersonEntity(final UUID id, final String firstName, final String secondName, final String firstLastName, final String secondLastName, final DocumentEntity document, final String documentNumber, final LocalDate birthDate, final String address, final String email, final boolean emailConfirmed, final String phone, final boolean phoneConfirmed, final int age) {
+		super();
+		setId(id);
+		setFirstName(firstName);
+		setSecondName(secondName);
+		setFirstLastName(firstLastName);
+		setSecondLastName(secondLastName);
+		setDocument(document);
+		setDocumentNumber(documentNumber);
+		setBirthDate(birthDate);
+		setAddress(address);
+		setEmail(email);
+		setEmailConfirmed(emailConfirmed);
+		setPhone(phone);
+		setPhoneConfirmed(phoneConfirmed);
+		setAge(age);
+	}
+
+	public UUID getId() {
+		return id;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public String getSecondName() {
+		return secondName;
+	}
+	public String getFirstLastName() {
+		return firstLastName;
+	}
+	public String getSecondLastName() {
+		return secondLastName;
+	}
+	public DocumentEntity getDocument() {
+		return document;
+	}
+	public String getDocumentNumber() {
+		return documentNumber;
+	}
+	public LocalDate getBirthDate() {
+		return birthDate;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public boolean isEmailConfirmed() {
+		return emailConfirmed;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public boolean isPhoneConfirmed() {
+		return phoneConfirmed;
+	}
+	public int getAge() {
+		return age;
+	}
+
+	private void setId(final UUID id) {
+		this.id = UUIDHelper.getDefault(id);
+	}
+	private void setFirstName(final String firstName) {
+		this.firstName = TextHelper.getDefaultWithTrim(firstName);
+	}
+	private void setSecondName(final String secondName) {
+		this.secondName = TextHelper.getDefaultWithTrim(secondName);
+	}
+	private void setFirstLastName(final String firstLastName) {
+		this.firstLastName = TextHelper.getDefaultWithTrim(firstLastName);
+	}
+	private void setSecondLastName(final String secondLastName) {
+		this.secondLastName = TextHelper.getDefaultWithTrim(secondLastName);
+	}
+	private void setDocument(final DocumentEntity document) {
+		this.document = ObjectHelper.getDefault(document, new DocumentEntity());
+	}
+	private void setDocumentNumber(final String documentNumber) {
+		this.documentNumber = TextHelper.getDefaultWithTrim(documentNumber);
+	}
+	private void setBirthDate(final LocalDate birthDate) {
+		this.birthDate = DateHelper.getDefault(birthDate);
+	}
+	private void setAddress(final String address) {
+		this.address = TextHelper.getDefaultWithTrim(address);
+	}
+	private void setEmail(final String email) {
+		this.email = TextHelper.getDefaultWithTrim(email);
+	}
+	private void setEmailConfirmed(final boolean emailConfirmed) {
+		this.emailConfirmed = BooleanHelper.getDefault(emailConfirmed);
+	}
+	private void setPhone(final String phone) {
+		this.phone = TextHelper.getDefaultWithTrim(phone);
+	}
+	private void setPhoneConfirmed(final boolean phoneConfirmed) {
+		this.phoneConfirmed = BooleanHelper.getDefault(phoneConfirmed);
+	}
+	private void setAge(final int age) {
+		this.age = NumericHelper.getDefaultInt(age);
+	}
 }

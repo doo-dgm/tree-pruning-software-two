@@ -17,18 +17,18 @@ public class ToolEntity {
 		setDescription(TextHelper.getDefault());
 	}
 	
-	public ToolEntity(final UUID id, final String name, final String description) {
-		super();
-		setId(id);
-		setName(name);
-		setDescription(description);
-	}
-	
 	public ToolEntity(final UUID id) {
 		super();
 		setId(id);
 		setName(TextHelper.getDefault());
 		setDescription(TextHelper.getDefault());
+	}
+	
+	public ToolEntity(final UUID id, final String name, final String description) {
+		super();
+		setId(id);
+		setName(name);
+		setDescription(description);
 	}
 	
 	public UUID getId() {

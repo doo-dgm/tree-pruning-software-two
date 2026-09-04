@@ -27,13 +27,13 @@ public class CountryEntity {
 		return isoCode;
 	}
 
-    private void setId(UUID id) {
+    private void setId(final UUID id) {
         this.id = UUIDHelper.getDefault(id);
     }
-    private void setName(String name) {
+    private void setName(final String name) {
         this.name = TextHelper.getDefault(name);
     }
-    private void setIsoCode(String isoCode) {
+    private void setIsoCode(final String isoCode) {
 		this.isoCode = TextHelper.getDefault(isoCode);
 	} 
 }

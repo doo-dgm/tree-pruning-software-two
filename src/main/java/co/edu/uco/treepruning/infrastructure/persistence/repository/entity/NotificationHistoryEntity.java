@@ -8,24 +8,37 @@ import co.edu.uco.treepruning.crosscutting.helper.UUIDHelper;
 
 public class NotificationHistoryEntity {
 	private UUID          id;
-    private UUID          userId;
-    private String        title;
-    private String        body;
-    private UUID          pruningId;
-    private UUID        type;
-    private LocalDateTime sentAt;
-    private boolean       success;
-    
-    public NotificationHistoryEntity(UUID id, UUID userId, String title,
+	private UUID          userId;
+	private String        title;
+	private String        body;
+	private UUID          pruningId;
+	private UUID        type;
+	private LocalDateTime sentAt;
+	private boolean       success;
+
+	public NotificationHistoryEntity() {
+		super();
+		setId(UUIDHelper.getDefault());
+		setUserId(UUIDHelper.getDefault());
+		setTitle(TextHelper.getDefault());
+		setBody(TextHelper.getDefault());
+		setPruningId(UUIDHelper.getDefault());
+		setType(UUIDHelper.getDefault());
+		setSentAt(LocalDateTime.now());
+		setSuccess(true);
+	}
+
+	public NotificationHistoryEntity(UUID id, UUID userId, String title,
 			String body, UUID pruningId, UUID type,
 			LocalDateTime sentAt) {
-		this.id = id;
-		this.userId = userId;
-		this.title = title;
-		this.body = body;
-		this.pruningId = pruningId;
-		this.type = type;
-		this.sentAt = sentAt;
+		setId(id);
+		setUserId(userId);
+		setTitle(title);
+		setBody(body);
+		setPruningId(pruningId);
+		setType(type);
+		setSentAt(sentAt);
+		setSuccess(true);
 	}
 
 	public UUID getId() {
@@ -91,6 +104,6 @@ public class NotificationHistoryEntity {
 	private void setSuccess(final boolean success) {
 		this.success = success;
 	}
-    
-    
+
+
 }

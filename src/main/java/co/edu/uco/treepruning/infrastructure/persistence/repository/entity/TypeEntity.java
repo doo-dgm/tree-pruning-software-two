@@ -21,10 +21,10 @@ public class TypeEntity {
         return name;
     }
 
-    public void setId(UUID id) {
+    public void setId(final UUID id) {
         this.id = UUIDHelper.getDefault(id);
     }
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = TextHelper.getDefaultWithTrim(name);
     }
 }

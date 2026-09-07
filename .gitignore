@@ -9,3 +9,8 @@ target/
 *.log
 .DS_Store
 Thumbs.db
+
+# Secretos locales - usar .env.dev.example como plantilla
+.env
+.env.*
+!.env.*.example

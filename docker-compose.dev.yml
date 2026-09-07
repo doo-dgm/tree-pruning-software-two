@@ -1,0 +1,54 @@
+# Stack minimo de infraestructura para desarrollo local: Postgres + MinIO.
+#
+# Uso con Infisical (inyecta las variables como entorno del proceso):
+#   infisical run --env=dev -- docker compose -f docker-compose.dev.yml up -d
+#
+# Uso sin Infisical (con un .env local, ver .env.dev.example):
+#   docker compose -f docker-compose.dev.yml --env-file .env.dev up -d
+#
+# Los nombres de variable son los mismos que lee application.properties,
+# para que un solo set de secretos sirva tanto para levantar los
+# contenedores como para que el backend se conecte a ellos.
+
+services:
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: tp-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-treepruning}
+      POSTGRES_USER: ${POSTGRES_USER:?falta POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?falta POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - tp_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  minio:
+    image: minio/minio:latest
+    container_name: tp-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${STORAGE_MINIO_ACCESS_KEY:?falta STORAGE_MINIO_ACCESS_KEY}
+      MINIO_ROOT_PASSWORD: ${STORAGE_MINIO_SECRET_KEY:?falta STORAGE_MINIO_SECRET_KEY}
+    ports:
+      - "9000:9000"   # API S3
+      - "9001:9001"   # Consola web
+    volumes:
+      - tp_minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  tp_postgres_data:
+  tp_minio_data:

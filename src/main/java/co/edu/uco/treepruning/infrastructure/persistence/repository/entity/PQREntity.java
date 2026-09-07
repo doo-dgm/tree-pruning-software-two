@@ -86,31 +86,31 @@ public class PQREntity {
 		return updatedAt;
 	}
 
-	private void setId(final UUID id) {
+	public void setId(final UUID id) {
 		this.id = UUIDHelper.getDefault(id);
 	}
-	private void setDate(final LocalDate date) {
+	public void setDate(final LocalDate date) {
 		this.date = DateHelper.getDefault(date);
 	}
-	private void setStatus(final StatusEntity status) {
+	public void setStatus(final StatusEntity status) {
 		this.status = ObjectHelper.getDefault(status, new StatusEntity());
 	}
-	private void setRisk(final RiskEntity risk) {
+	public void setRisk(final RiskEntity risk) {
 		this.risk = ObjectHelper.getDefault(risk, new RiskEntity());
 	}
-	private void setSector(final SectorEntity sector) {
+	public void setSector(final SectorEntity sector) {
 		this.sector = ObjectHelper.getDefault(sector, new SectorEntity());
 	}
-	private void setPerson(final PersonEntity person) {
+	public void setPerson(final PersonEntity person) {
 		this.person = ObjectHelper.getDefault(person, new PersonEntity());
 	}
-	private void setPhotographicRecordPath(final String photographicRecordPath) {
+	public void setPhotographicRecordPath(final String photographicRecordPath) {
 		this.photographicRecordPath = TextHelper.getDefault(photographicRecordPath);
 	}
-	private void setCreatedAt(final ZonedDateTime createdAt) {
+	public void setCreatedAt(final ZonedDateTime createdAt) {
 		this.createdAt = DateHelper.getDefaultZonedDateTime(createdAt);
 	}
-	private void setUpdatedAt(final ZonedDateTime updatedAt) {
+	public void setUpdatedAt(final ZonedDateTime updatedAt) {
 		this.updatedAt = DateHelper.getDefaultZonedDateTime(updatedAt);
 	}
 

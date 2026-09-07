@@ -34,19 +34,19 @@ public class SendNotificationEntity {
 		return body;
 	}
     		
-	private void setUserId(final UUID userId) {
+	public void setUserId(final UUID userId) {
 		this.userId = UUIDHelper.getDefault(userId);
 	}
     	
-	private void setPruningId(final UUID pruningId) {
+	public void setPruningId(final UUID pruningId) {
 		this.pruningId = UUIDHelper.getDefault(pruningId);
 	}
     		
-	private void setTitle(final String title) {
+	public void setTitle(final String title) {
 		this.title = TextHelper.getDefaultWithTrim(title);
 	}
 				
-	private void setBody(final String body) {
+	public void setBody(final String body) {
 		this.body = TextHelper.getDefaultWithTrim(body);
 	}
 }

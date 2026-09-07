@@ -122,46 +122,46 @@ public class PersonEntity {
 		return age;
 	}
 
-	private void setId(final UUID id) {
+	public void setId(final UUID id) {
 		this.id = UUIDHelper.getDefault(id);
 	}
-	private void setFirstName(final String firstName) {
+	public void setFirstName(final String firstName) {
 		this.firstName = TextHelper.getDefaultWithTrim(firstName);
 	}
-	private void setSecondName(final String secondName) {
+	public void setSecondName(final String secondName) {
 		this.secondName = TextHelper.getDefaultWithTrim(secondName);
 	}
-	private void setFirstLastName(final String firstLastName) {
+	public void setFirstLastName(final String firstLastName) {
 		this.firstLastName = TextHelper.getDefaultWithTrim(firstLastName);
 	}
-	private void setSecondLastName(final String secondLastName) {
+	public void setSecondLastName(final String secondLastName) {
 		this.secondLastName = TextHelper.getDefaultWithTrim(secondLastName);
 	}
-	private void setDocument(final DocumentEntity document) {
+	public void setDocument(final DocumentEntity document) {
 		this.document = ObjectHelper.getDefault(document, new DocumentEntity());
 	}
-	private void setDocumentNumber(final String documentNumber) {
+	public void setDocumentNumber(final String documentNumber) {
 		this.documentNumber = TextHelper.getDefaultWithTrim(documentNumber);
 	}
-	private void setBirthDate(final LocalDate birthDate) {
+	public void setBirthDate(final LocalDate birthDate) {
 		this.birthDate = DateHelper.getDefault(birthDate);
 	}
-	private void setAddress(final String address) {
+	public void setAddress(final String address) {
 		this.address = TextHelper.getDefaultWithTrim(address);
 	}
-	private void setEmail(final String email) {
+	public void setEmail(final String email) {
 		this.email = TextHelper.getDefaultWithTrim(email);
 	}
-	private void setEmailConfirmed(final boolean emailConfirmed) {
+	public void setEmailConfirmed(final boolean emailConfirmed) {
 		this.emailConfirmed = BooleanHelper.getDefault(emailConfirmed);
 	}
-	private void setPhone(final String phone) {
+	public void setPhone(final String phone) {
 		this.phone = TextHelper.getDefaultWithTrim(phone);
 	}
-	private void setPhoneConfirmed(final boolean phoneConfirmed) {
+	public void setPhoneConfirmed(final boolean phoneConfirmed) {
 		this.phoneConfirmed = BooleanHelper.getDefault(phoneConfirmed);
 	}
-	private void setAge(final int age) {
+	public void setAge(final int age) {
 		this.age = NumericHelper.getDefaultInt(age);
 	}
 }

@@ -9,40 +9,50 @@ public class PruningToolEntity {
 	private UUID id;
 	private PruningEntity pruning;
 	private ToolEntity tool;
-	
+
 	public PruningToolEntity() {
 		super();
-		setId(UUID.randomUUID());
+		setId(UUIDHelper.getDefault());
 		setPruning(new PruningEntity());
 		setTool(new ToolEntity());
 	}
-	
+
+	public PruningToolEntity(final UUID id) {
+		super();
+		setId(id);
+		setPruning(new PruningEntity());
+		setTool(new ToolEntity());
+	}
+
 	public PruningToolEntity(final UUID id, final PruningEntity pruning, final ToolEntity tool) {
 		super();
 		setId(id);
 		setPruning(pruning);
 		setTool(tool);
 	}
-	
+
 	public UUID getId() {
 		return id;
 	}
+
 	public PruningEntity getPruning() {
 		return pruning;
 	}
-	private ToolEntity getTool() {
+
+	public ToolEntity getTool() {
 		return tool;
 	}
-	
+
 	public void setId(final UUID id) {
 		this.id = UUIDHelper.getDefault(id);
 	}
-	private void setPruning(final PruningEntity pruning) {
+
+	public void setPruning(final PruningEntity pruning) {
 		this.pruning = ObjectHelper.getDefault(pruning, new PruningEntity());
 	}
-	private void setTool(final ToolEntity tool) {
+
+	public void setTool(final ToolEntity tool) {
 		this.tool = ObjectHelper.getDefault(tool, new ToolEntity());
 	}
-	
-	
+
 }

@@ -147,12 +147,12 @@
 		    <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
 		</dependency>
 
-		<!-- Source: https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<!-- Source: https://mvnrepository.com/artifact/org.projectlombok/lombok
+		     Version gestionada por el BOM de spring-boot-starter-parent (1.18.46). -->
 		<dependency>
 		    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>
-		    <version>0.10.1</version>
-		    <scope>compile</scope>
+		    <scope>provided</scope>
 		</dependency>
 
     </dependencies>
@@ -175,6 +175,16 @@
                          all-args constructor). -->
                     <parameters>true</parameters>
                     <annotationProcessorPaths>
+                        <!-- Lombok debe declararse explicitamente aqui: al configurar
+                             annotationProcessorPaths, maven-compiler-plugin deja de
+                             escanear el classpath en busca de procesadores, asi que
+                             @Slf4j (usado en RecaptchaService/KeycloakAuthService)
+                             dejaria de generar el campo `log` si no se lista. -->
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>

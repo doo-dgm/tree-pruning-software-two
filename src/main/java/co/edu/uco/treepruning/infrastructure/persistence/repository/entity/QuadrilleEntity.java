@@ -41,13 +41,13 @@ public class QuadrilleEntity {
 		return manager;
 	}
 
-	private void setId(final UUID id) {
+	public void setId(final UUID id) {
 		this.id = UUIDHelper.getDefault(id);
 	}
-	private void setQuadrilleName(final String quadrilleName) {
+	public void setQuadrilleName(final String quadrilleName) {
 		this.quadrilleName = TextHelper.getDefaultWithTrim(quadrilleName);
 	}
-	private void setManager(final ManagerEntity manager) {
+	public void setManager(final ManagerEntity manager) {
 		this.manager = ObjectHelper.getDefault(manager, new ManagerEntity());
 	}
 }

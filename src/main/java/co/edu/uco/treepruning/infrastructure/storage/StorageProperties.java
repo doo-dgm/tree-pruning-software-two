@@ -21,7 +21,7 @@ public class StorageProperties {
     }
 
     public String getPublicEndpoint() {
-        return publicEndpoint != null ? publicEndpoint : endpoint;
+        return (publicEndpoint != null && !publicEndpoint.isBlank()) ? publicEndpoint : endpoint;
     }
     public void setPublicEndpoint(String publicEndpoint) {
         this.publicEndpoint = publicEndpoint;
